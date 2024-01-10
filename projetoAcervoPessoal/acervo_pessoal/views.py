@@ -59,7 +59,7 @@ def cad_usuario(request):
         user.save()
 
 
-        return HttpResponse("Usuário cadastrado com sucesso!")
+        return render(request, 'acervo_pessoal/login_usuario.html')
 
 #---------------------------------------------------------------------------------------------------------------
 
