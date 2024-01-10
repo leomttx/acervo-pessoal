@@ -1,0 +1,28 @@
+{% extends "acervo_pessoal/base.html" %}
+    {% block content %}
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% if livros_emprestados %}
+        <ul>
+            {% for livro in livros_emprestados %}
+                {% if livro.fotoCapa %}
+                    <li> Capa : <img src="{{ livro.fotoCapa.url }}" alt="Foto Capa"></li>
+                {% endif %}
+                <li> Titulo : {{ livro.titulo }} </li>
+                <li> Autor : {{ livro.autor }} </li>
+                <li> Data : {{ livro.data_publicacao }}</li>
+                <li> Quantidade Total : {{ livro.qtd_total }} </li>
+                <li> Quantidadeeee Disponível: {{ ld }} </li>
+                <li> Quantidade Emprestada: {{ livro.livro_emprestado.count }} </li>
+                <button onclick="window.location.href='/acervo_pessoal/registrar_devolucao/{{ livro.id }}'"> Registrar Devolução </button>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> Nenhum Livro Encontrado.</p>
+    {% endif %}
+ {% endblock %}

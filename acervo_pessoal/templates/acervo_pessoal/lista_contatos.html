@@ -1,0 +1,9 @@
+{% extends "acervo_pessoal/base.html" %}
+    {% block content %}
+        {% for ctt in contatos  %}
+            <li> Nome : {{ ctt.nome }} </li>
+            <li> Telfone : {{ ctt.telefone }} </li>
+            <li> Email : {{ ctt.email }}</li>
+        {% endfor %}
+
+    {% endblock %}

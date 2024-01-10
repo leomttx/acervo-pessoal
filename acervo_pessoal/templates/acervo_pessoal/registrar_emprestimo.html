@@ -1,0 +1,17 @@
+{% extends "acervo_pessoal/base.html" %}
+    {% block content %}
+    <h1> Registrar Emprestimo Para Contato Específico </h1>
+      <form method="post" action="{% url 'acervo_pessoal:registrar_emprestimo' livro.id %}">
+        {% csrf_token %}
+         <label for="contato">Selecione o Contato:</label>
+        <select id="contato" name="contato" required>
+            <option value="" disabled selected>Escolha um Contato</option>
+            {% for contato in contatos %}
+                <option value="{{ contato.id }}">{{ contato.nome }}</option>
+            {% endfor %}
+        <!--<label for="email">Email:</label>-->
+        <!--<input type="email" name="email" placeholder="Email" required><br>-->
+
+        <input type="submit" value="Registrar Emprestimo">
+    </form>
+  {% endblock %}

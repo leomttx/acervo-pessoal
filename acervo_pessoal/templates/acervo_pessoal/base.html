@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>{%block titulo%} {%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'acervo_pessoal/style.css' %}">
+</head>
+<body>
+
+    <div class="button-container">
+        <button onclick="window.location.href='{% url 'acervo_pessoal:pesquisar_livro' %}'">Pesquisar Livros</button>
+        <button onclick="window.location.href='{% url 'acervo_pessoal:cadastro_contato' %}'">Cadastrar Contato</button>
+        <button onclick="window.location.href='{% url 'acervo_pessoal:cad_usuario' %}'">Cadastro Usuario</button>
+        <button onclick="window.location.href='/acervo_pessoal/cad_livro/'">Cadastrar Livro</button>
+        <button onclick="window.location.href='/acervo_pessoal/login_usuario/'">Login</button>
+        <button onclick="window.location.href='/acervo_pessoal/logout_usuario/'"> Deslogar </button>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

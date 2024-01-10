@@ -1,0 +1,30 @@
+<!-- registrar_devolucao.html -->
+{% extends "acervo_pessoal/base.html" %}
+
+{% block content %}
+
+{% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+{% endif %}
+<h2>Registrar Devolução</h2>
+<p>Confirma a devolução do livro "{{ emprestimo.livro.titulo }}"?</p>
+
+<form method="post" action="{% url 'acervo_pessoal:registrar_devolucao' emprestimo.id %}">
+    {% csrf_token %}
+
+    <label for="contato_devolucao">Contato que está devolvendo:</label>
+    <select name="contato_devolucao" id="contato_devolucao">
+        {% for contato in contatos %}
+            <option value="{{ contato.id }}">{{ contato.nome }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Confirmar Devolução</button>
+</form>
+
+<a href="{% url 'acervo_pessoal:lista_livros_emprestados' %}">Voltar para a lista de empréstimos</a>
+{% endblock %}

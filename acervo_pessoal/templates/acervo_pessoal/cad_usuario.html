@@ -1,0 +1,15 @@
+{% extends "acervo_pessoal/base.html" %}
+    {% block content %}
+
+        <form action={% url 'acervo_pessoal:cad_usuario' %} method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Username..." name="username">
+            <br>
+            <input type="email" placeholder="Email..." name="email">
+            <br>
+            <input type="password" placeholder="Senha..." name="senha">
+            <br>
+            <input type="submit" value="cadastrar">
+        </form>
+
+    {% endblock %}
