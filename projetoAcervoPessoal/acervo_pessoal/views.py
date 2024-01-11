@@ -20,8 +20,6 @@ def cad_livro(request):
         qtd_total = request.POST.get('qtd_total')
         fotoCapa = request.FILES.get('fotoCapa')
 
-
-
         Livro.objects.create(
             titulo = titulo,
             autor = autor,
@@ -181,15 +179,3 @@ def pesquisar_livro(request):
         livros_encontrados = pesquisa_itens.pesquisa_por_nome(termo_pesquisa)
 
     return render(request, 'acervo_pessoal/pesquisa.html', {'livros_encontrados': livros_encontrados, 'termo_pesquisa': termo_pesquisa})
-
-    # livros_encontrados = []  # Inicializa com uma lista vazia
-
-    # if request.method == 'GET':
-    #     titulo_livro = request.GET.get('titulo', '')  # Obter o título do livro da consulta GET
-    #     pesquisa_itens = PesquisaItens()
-    #     livros_encontrados = pesquisa_itens.pesquisa_por_nome(titulo_livro)
-
-    #     return render(request, 'acervo_pessoal/resultado_pesquisa.html', {'livros_encontrados': livros_encontrados, 'termo_pesquisa': titulo_livro})
-
-    # return render(request, 'acervo_pessoal/pesquisar_livro.html')
-

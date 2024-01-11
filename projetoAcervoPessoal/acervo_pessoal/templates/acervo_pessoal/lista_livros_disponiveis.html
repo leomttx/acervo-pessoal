@@ -11,7 +11,7 @@
         <ul>
             {% for livro in livros %}
                 {% if livro.fotoCapa %}
-                    <li> Capa : <img src="{{ livro.fotoCapa.url }}" alt="Foto Capa"></li>
+                    <li> Capa : <img src="{{ livro.fotoCapa.url }}"></li>
                 {% endif %}
                 <li> Titulo0 : {{ livro.titulo }} </li>
                 <li> Autor : {{ livro.autor }} </li>
