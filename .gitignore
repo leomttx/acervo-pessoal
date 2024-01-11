@@ -60,6 +60,8 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+**/migrations/*.py # não suba os arquivos dentro da pasta migrations
+!**/migrations/__init__.py # mas deixe o __init__.py
 
 # Flask stuff:
 instance/
